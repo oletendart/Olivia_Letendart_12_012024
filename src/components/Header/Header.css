@@ -1,0 +1,14 @@
+.nameHeader {
+    font-family: "Roboto Light", sans-serif;
+    font-weight: 500;
+    font-size: 48px;
+    line-height: 24px;
+}
+
+.paragraphHeader {
+    font-family: "Roboto Light", sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 24px;
+    padding-top: 48px;
+}
