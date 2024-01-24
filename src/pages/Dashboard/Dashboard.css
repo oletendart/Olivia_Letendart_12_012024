@@ -2,13 +2,14 @@
     max-width: 1126px;
     width: 100%;
     margin: 0 auto;
-    padding: 48px 0;
+    padding: 48px 0 0;
 }
 
 .objectifAndProteins {
     display: flex;
     flex-direction: row;
     padding: 48px 0;
+    gap: 12px;
 }
 
 .parentObjectif {
@@ -19,4 +20,10 @@
 .objectifs {
     display: flex;
     flex-direction: row;
+}
+
+.proteins {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
 }

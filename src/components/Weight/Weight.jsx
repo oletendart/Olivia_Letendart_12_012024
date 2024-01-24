@@ -12,7 +12,7 @@ export default function Weight() {
                 <XAxis dataKey="name" />
                 <YAxis />
                 <Tooltip />
-                <Legend />
+                <Legend iconType="circle"/>
                 <Bar dataKey="pv" name="Poids (kg)" fill="#282D30" barSize={7}/>
                 <Bar dataKey="uv" name="Calories brulées (kCal)" fill="#E60000" barSize={7}/>
             </BarChart>

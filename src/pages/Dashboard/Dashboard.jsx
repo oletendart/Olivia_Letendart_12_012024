@@ -5,8 +5,34 @@ import Supply from "../../components/Supply/Supply.jsx";
 import Objectives from "../../components/Objectives/Objectives.jsx";
 import Radar from "../../components/Radar/Radar.jsx";
 import Kpi from "../../components/Kpi/Kpi.jsx";
+import calories from "../../assets/calories-icon.png";
+import protein from "../../assets/protein-icon.png";
+import carbs from "../../assets/carbs-icon.png";
+import fat from "../../assets/fat-icon.png";
 
 export default function Dashboard() {
+    const data = [
+        {
+            name: "Calories",
+            number: '1930Kcal',
+            img: calories
+        },
+        {
+            name: "Proteines",
+            number: '155g',
+            img: protein
+        },
+        {
+            name: "Glucides",
+            number: '250g',
+            img: carbs
+        },
+        {
+            name: "Lipides",
+            number: '50g',
+            img: fat
+        },
+    ]
 
     return (
         <section className="dashboardParent">
@@ -24,11 +50,9 @@ export default function Dashboard() {
                 </div>
 
                 <div className="proteins">
-                    {/*    Calories / Glucide / Proteines / Lipide (un seul composant) */}
-                    <Supply/>
-                    <Supply/>
-                    <Supply/>
-                    <Supply/>
+                    {data.map((data, index) => (
+                        <Supply key={index} name={data.name} number={data.number} img={data.img}/>
+                        ))}
                 </div>
 
             </div>
