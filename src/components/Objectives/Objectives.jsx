@@ -1,4 +1,4 @@
-import {Line, LineChart, Tooltip, XAxis} from "recharts";
+import {Line, LineChart, Tooltip, XAxis, Text} from "recharts";
 import './Objectives.css'
 
 export default function Objectives() {
@@ -56,6 +56,7 @@ export default function Objectives() {
 
     return (
         <section className="objectivesParent">
+            <Text>Durée moyenne des sessions</Text>
             <LineChart width={258} height={263} data={data}>
                 <XAxis dataKey="day" />
                 <Tooltip />

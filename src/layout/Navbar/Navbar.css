@@ -9,7 +9,7 @@ nav {
     flex-wrap: nowrap;
     align-content: center;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
     background-color: #020203;
     padding: 24px;
     box-shadow: 0 4px 4px 0 #00000040;

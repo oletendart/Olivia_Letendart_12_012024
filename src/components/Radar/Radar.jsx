@@ -3,51 +3,26 @@ import './Radar.css'
 
 export default function Radar() {
     const data = [
-        {
-            subject: 'Math',
-            A: 120,
-            B: 110,
-            fullMark: 150,
-        },
-        {
-            subject: 'Chinese',
-            A: 98,
-            B: 130,
-            fullMark: 150,
-        },
-        {
-            subject: 'English',
-            A: 86,
-            B: 130,
-            fullMark: 150,
-        },
-        {
-            subject: 'Geography',
-            A: 99,
-            B: 100,
-            fullMark: 150,
-        },
-        {
-            subject: 'Physics',
-            A: 85,
-            B: 90,
-            fullMark: 150,
-        },
-        {
-            subject: 'History',
-            A: 65,
-            B: 85,
-            fullMark: 150,
-        },
+        { category: 'A', value: 21 },
+        { category: 'B', value: 22 },
+        { category: 'C', value: -32 },
+        { category: 'D', value: -14 },
+        { category: 'E', value: -51 },
+        { category: 'F', value: 16 },
+        { category: 'G', value: 7 },
+        { category: 'H', value: -8 },
+        { category: 'I', value: 9 },
     ];
-
 
     return (
         <section className="radarParent">
-            <RadarChart outerRadius={90} width={258} height={263} data={data}>
+            <RadarChart cx={300} cy={250} outerRadius={150} width={258} height={263} data={data}>
                 <PolarGrid />
-                <Radar name="Mike" dataKey="A" stroke="#8884d8" fill="#8884d8" fillOpacity={0.6} />
+                <Radar name="Example" dataKey="value" stroke="#8884d8" fill="#8884d8" fillOpacity={0.6} angleAxisId="radius" />
+
+
             </RadarChart>
+
         </section>
     )
 }
