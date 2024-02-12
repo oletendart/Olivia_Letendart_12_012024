@@ -54,14 +54,45 @@ export default function Objectives() {
         },
     ];
 
+    const CustomTooltip = ({ active, payload }) => {
+        if (active && payload && payload.length) {
+            return (
+                <div style={{ background: 'rgba(0, 0, 0, 0.8)', padding: '10px', borderRadius: '5px', color: '#fff' }}>
+                    <p>texte ici</p>
+                </div>
+            );
+        }
+
+        return null;
+    };
+
     return (
         <section className="objectivesParent">
-            <Text>Durée moyenne des sessions</Text>
-            <LineChart width={258} height={263} data={data}>
-                <XAxis dataKey="day" />
-                <Tooltip />
-                <Line type="monotone" dataKey="pv" stroke="#ffffff" />
-            </LineChart>
+            <Text style={{color: "#fff", width: "10%"}}>
+            Durée moyenne des
+            sessions
+            </Text>
+            <div style={{display: 'flex', justifyContent: 'center'}}>
+                <LineChart width={263}
+                           height={233}
+                           data={data}>
+                    <XAxis dataKey="day"
+                           stroke="#fff"
+                           tickLine={false}
+                           axisLine={false}
+                           style={{padding: "10px"}}/>
+                    <Tooltip content={CustomTooltip}/>
+                    <Line type="monotone"
+                          dataKey="pv"
+                          stroke="#ffffff"
+                          dot={false}
+                    activeDot={{
+                        stroke: 'rgba(255,255,255, 0.6)',
+                        strokeWidth: 10,
+                        r: 5
+                    }}/>
+                </LineChart>
+            </div>
         </section>
     )
 }

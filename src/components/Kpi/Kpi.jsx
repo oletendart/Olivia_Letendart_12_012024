@@ -13,10 +13,15 @@ export default function Kpi() {
     return (
         <section className="kpiParent">
             <Text>Score</Text>
-            <RadialBarChart width={258} height={263} innerRadius="10%" outerRadius="80%" barSize={10} data={data}>
+            <RadialBarChart width={258}
+                            height={263}
+                            innerRadius="10%"
+                            outerRadius="80%"
+                            barSize={10}
+                            data={data}>
                 <RadialBar
                     minAngle={15}
-                    label={{ position: 'insideStart', fill: '#fff' }}
+                    label={{position: 'insideStart', fill: '#fff'}}
                     background
                     clockWise
                     dataKey="uv"

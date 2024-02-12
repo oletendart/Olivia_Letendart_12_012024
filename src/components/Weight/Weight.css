@@ -4,9 +4,9 @@
 }
 
 .weightParent h2 {
-    font-family: "Roboto Light", sans-serif;
+    font-family: "Roboto", sans-serif;
     font-size: 15px;
-    font-weight: 500;
+    font-weight: bold;
     line-height: 24px;
     color: #20253A;
     padding: 4px;

@@ -16,9 +16,9 @@ export default function Radar() {
 
     return (
         <section className="radarParent">
-            <RadarChart cx={300} cy={250} outerRadius={150} width={258} height={263} data={data}>
+            <RadarChart cx={135} cy={135} outerRadius={100} width={258} height={263} data={data}>
                 <PolarGrid />
-                <Radar name="Example" dataKey="value" stroke="#8884d8" fill="#8884d8" fillOpacity={0.6} angleAxisId="radius" />
+                <Radar name="Example" dataKey="value" stroke="#8884d8" fill="#8884d8" fillOpacity={0.6}/>
 
 
             </RadarChart>
