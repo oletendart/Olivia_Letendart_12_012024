@@ -16,7 +16,7 @@ export default function Weight() {
             <BarChart width={730} height={250} data={data}>
                 <CartesianGrid strokeDasharray="3 3" />
                 <XAxis dataKey="name" />
-                <YAxis orientation="right"/>
+                <YAxis orientation="right" axisLine={false}  />
                 <Tooltip />
                 <Legend iconType="circle" verticalAlign="top" align="right"/>
                 <Bar dataKey="pv" name="Poids (kg)" fill="#282D30" barSize={7}/>
