@@ -10,17 +10,44 @@ export default function Weight() {
         { name: 'Page F', uv: 2390, pv: 3800, amt: 2500 },
         { name: 'Page G', uv: 3490, pv: 4300, amt: 2100 },];
 
+    const CustomTooltip = ({ active, payload }) => {
+        if (active && payload && payload.length) {
+            return (
+                <div style={{ background: '#E60000', padding: '10px', borderRadius: '5px', color: '#fff' }}>
+                    {data.map((dataName, index) => (
+                        <div key={index}>
+                            <p>{dataName.pv}</p>
+                            <p>{dataName.amt}</p>
+                        </div>
+                        ))}
+                </div>
+            );
+        }
+
+        return null;
+    };
+
     return (
         <section className="weightParent">
             <h2>Activité quotidienne</h2>
             <BarChart width={730} height={250} data={data}>
-                <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="name" />
-                <YAxis orientation="right" axisLine={false}  />
-                <Tooltip />
-                <Legend iconType="circle" verticalAlign="top" align="right"/>
-                <Bar dataKey="pv" name="Poids (kg)" fill="#282D30" barSize={7}/>
-                <Bar dataKey="uv" name="Calories brulées (kCal)" fill="#E60000" barSize={7}/>
+                <CartesianGrid strokeDasharray="6" vertical={false} />
+                <XAxis dataKey="name" axisLine={false} tickLine={false} />
+                <YAxis orientation="right" axisLine={false} tickLine={false} />
+                <Tooltip content={CustomTooltip}/>
+                <Legend iconType="circle" verticalAlign="top" align="right" contentStyle={{ marginBottom: '20px' }}/>
+                <Bar
+                    dataKey="pv"
+                     name="Poids (kg)"
+                     fill="#282D30"
+                     barSize={7}
+                     bar={{ borderRadius: '24px' }}/>
+                <Bar
+                    dataKey="uv"
+                    name="Calories brulées (kCal)"
+                    fill="#E60000"
+                    barSize={7}
+                    bar={{ borderRadius: '24px' }}/>
             </BarChart>
         </section>
     )

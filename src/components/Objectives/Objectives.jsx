@@ -57,7 +57,7 @@ export default function Objectives() {
     const CustomTooltip = ({ active, payload }) => {
         if (active && payload && payload.length) {
             return (
-                <div style={{ background: 'rgba(0, 0, 0, 0.8)', padding: '10px', borderRadius: '5px', color: '#fff' }}>
+                <div style={{ background: '#fff', padding: '10px', borderRadius: '5px', color: '#000' }}>
                     <p>texte ici</p>
                 </div>
             );
@@ -68,7 +68,7 @@ export default function Objectives() {
 
     return (
         <section className="objectivesParent">
-            <Text style={{color: "#fff", width: "10%"}}>
+            <Text style={{color: "#fff", width: "10%", opacity: '0,5'}}>
             Durée moyenne des
             sessions
             </Text>
