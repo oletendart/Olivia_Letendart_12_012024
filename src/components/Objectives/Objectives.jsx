@@ -57,9 +57,9 @@ export default function Objectives() {
     const CustomTooltip = ({ active, payload }) => {
         if (active && payload && payload.length) {
             return (
-                <div style={{ background: '#fff', padding: '10px', borderRadius: '5px', color: '#000' }}>
-                    <p>texte ici</p>
-                </div>
+                        <div style={{background: '#fff', padding: '10px', borderRadius: '5px', color: '#000'}}>
+                            <p>texte ici</p>
+                        </div>
             );
         }
 

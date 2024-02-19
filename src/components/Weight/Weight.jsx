@@ -12,19 +12,28 @@ export default function Weight() {
 
     const CustomTooltip = ({ active, payload }) => {
         if (active && payload && payload.length) {
+            const item = payload[0].payload;
+
             return (
                 <div style={{ background: '#E60000', padding: '10px', borderRadius: '5px', color: '#fff' }}>
-                    {data.map((dataName, index) => (
-                        <div key={index}>
-                            <p>{dataName.pv}</p>
-                            <p>{dataName.amt}</p>
-                        </div>
-                        ))}
+                            <p>{item.pv}</p>
+                            <p>{item.amt}</p>
                 </div>
             );
         }
 
         return null;
+    };
+
+    const CustomBar = (props) => {
+        const { x, y, width, height, fill } = props;
+        const rayon = 4;
+
+        return (
+            <g>
+                <rect x={x} y={y} width={width} height={height} fill={fill} rx={rayon} ry={rayon} />
+            </g>
+        );
     };
 
     return (
@@ -35,19 +44,20 @@ export default function Weight() {
                 <XAxis dataKey="name" axisLine={false} tickLine={false} />
                 <YAxis orientation="right" axisLine={false} tickLine={false} />
                 <Tooltip content={CustomTooltip}/>
-                <Legend iconType="circle" verticalAlign="top" align="right" contentStyle={{ marginBottom: '20px' }}/>
+                <Legend iconType="circle" verticalAlign="top" align="right" />
                 <Bar
                     dataKey="pv"
-                     name="Poids (kg)"
-                     fill="#282D30"
-                     barSize={7}
-                     bar={{ borderRadius: '24px' }}/>
+                    name="Poids (kg)"
+                    fill="#282D30"
+                    barSize={7}
+                    shape={CustomBar}
+                />
                 <Bar
                     dataKey="uv"
                     name="Calories brulées (kCal)"
                     fill="#E60000"
                     barSize={7}
-                    bar={{ borderRadius: '24px' }}/>
+                    shape={CustomBar}/>
             </BarChart>
         </section>
     )

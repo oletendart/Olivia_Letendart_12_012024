@@ -1,6 +1,7 @@
 .weightParent {
     box-shadow: 0 2px 4px 0 #00000005;
     background-color: #FBFBFB;
+    position: relative;
 }
 
 .weightParent h2 {
@@ -10,4 +11,18 @@
     line-height: 24px;
     color: #20253A;
     padding: 4px;
+}
+.chartContainer {
+    position: relative;
+}
+
+.titleAndLegend {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
