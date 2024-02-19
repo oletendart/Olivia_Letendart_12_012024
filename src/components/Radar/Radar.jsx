@@ -3,15 +3,12 @@ import './Radar.css';
 
 export default function Radar() {
     const data = [
-        { category: 'A', value: 21 },
-        { category: 'B', value: 22 },
-        { category: 'C', value: -32 },
-        { category: 'D', value: -14 },
-        { category: 'E', value: -51 },
-        { category: 'F', value: 16 },
-        { category: 'G', value: 7 },
-        { category: 'H', value: -8 },
-        { category: 'I', value: 9 },
+        { category: 'Intensité', value: 21 },
+        { category: 'Vitesse', value: 22 },
+        { category: 'Force', value: -32 },
+        { category: 'Endurance', value: -14 },
+        { category: 'Energie', value: -51 },
+        { category: 'Cardio', value: 16 }
     ];
 
     return (

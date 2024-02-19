@@ -68,7 +68,7 @@ export default function Objectives() {
 
     return (
         <section className="objectivesParent">
-            <Text style={{color: "#fff", width: "10%", opacity: '0,5'}}>
+            <Text style={{color: "#fff", opacity: '0,5'}}>
             Durée moyenne des
             sessions
             </Text>
@@ -80,7 +80,7 @@ export default function Objectives() {
                            stroke="#fff"
                            tickLine={false}
                            axisLine={false}
-                           style={{padding: "10px"}}/>
+                           style={{ margin: '0 20px'}}/>
                     <Tooltip content={CustomTooltip}/>
                     <Line type="monotone"
                           dataKey="pv"
