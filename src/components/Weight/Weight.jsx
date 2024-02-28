@@ -38,27 +38,46 @@ export default function Weight() {
 
     return (
         <section className="weightParent">
-            <h2>Activité quotidienne</h2>
-            <BarChart width={730} height={250} data={data}>
-                <CartesianGrid strokeDasharray="6" vertical={false} />
-                <XAxis dataKey="name" axisLine={false} tickLine={false} />
-                <YAxis orientation="right" axisLine={false} tickLine={false} />
-                <Tooltip content={CustomTooltip}/>
-                <Legend iconType="circle" verticalAlign="top" align="right" />
-                <Bar
-                    dataKey="pv"
-                    name="Poids (kg)"
-                    fill="#282D30"
-                    barSize={7}
-                    shape={CustomBar}
-                />
-                <Bar
-                    dataKey="uv"
-                    name="Calories brulées (kCal)"
-                    fill="#E60000"
-                    barSize={7}
-                    shape={CustomBar}/>
-            </BarChart>
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                <div style={{ marginBottom: '10px' }}>
+                    <p style={{ marginBottom: '0' }}>Activité quotidienne</p>
+                </div>
+                <div style={{marginRight: '20px'}}>
+                    <BarChart
+                        width={730}
+                        height={250}
+                        data={data}
+                    >
+                        <CartesianGrid strokeDasharray="6"
+                                       vertical={false}/>
+                        <XAxis dataKey="name"
+                               axisLine={false}
+                               tickLine={false}/>
+                        <YAxis orientation="right"
+                               axisLine={false}
+                               tickLine={false}/>
+                        <Tooltip content={CustomTooltip}/>
+                        <Legend
+                            iconType="circle"
+                            verticalAlign="top"
+                            align="right"
+                        />
+                        <Bar
+                            dataKey="pv"
+                            name="Poids (kg)"
+                            fill="#282D30"
+                            barSize={7}
+                            shape={CustomBar}
+                        />
+                        <Bar
+                            dataKey="uv"
+                            name="Calories brulées (kCal)"
+                            fill="#E60000"
+                            barSize={7}
+                            shape={CustomBar}/>
+                    </BarChart>
+                </div>
+            </div>
         </section>
     )
 }

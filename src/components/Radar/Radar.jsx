@@ -1,4 +1,11 @@
-import { Radar as RechartsRadar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis } from "recharts";
+import {
+    Radar as RechartsRadar,
+    RadarChart,
+    PolarGrid,
+    PolarAngleAxis,
+    PolarRadiusAxis,
+    ResponsiveContainer
+} from "recharts";
 import './Radar.css';
 
 export default function Radar() {
@@ -13,12 +20,14 @@ export default function Radar() {
 
     return (
         <section className="radarParent">
-            <RadarChart cx={135} cy={135} outerRadius={100} width={258} height={263} data={data}>
+            <ResponsiveContainer width={258} height={263}>
+            <RadarChart cx={130} cy={130} outerRadius={80} data={data}>
                 <PolarGrid />
                 <PolarAngleAxis dataKey="category" />
                 <PolarRadiusAxis display="none" />
                 <RechartsRadar name="Example" dataKey="value" stroke="#E60000" fill="#E60000" fillOpacity={0.6} />
             </RadarChart>
+            </ResponsiveContainer>
         </section>
     );
 }
