@@ -1,50 +1,30 @@
 [
   {
-    "label": "Jan",
+    "label": "L",
     "rev": 64854
   },
   {
-    "label": "Feb",
+    "label": "M",
     "rev": 54628
   },
   {
-    "label": "Mar",
+    "label": "M",
     "rev": 117238
   },
   {
-    "label": "Apr",
+    "label": "J",
     "rev": 82830
   },
   {
-    "label": "May",
+    "label": "V",
     "rev": 91208
   },
   {
-    "label": "Jun",
+    "label": "S",
     "rev": 103609
   },
   {
-    "label": "Jul",
+    "label": "D",
     "rev": 90974
-  },
-  {
-    "label": "Aug",
-    "rev": 82919
-  },
-  {
-    "label": "Sep",
-    "rev": 62407
-  },
-  {
-    "label": "Oct",
-    "rev": 82528
-  },
-  {
-    "label": "Nov",
-    "rev": 56979
-  },
-  {
-    "label": "Dec",
-    "rev": 87436
   }
 ]
