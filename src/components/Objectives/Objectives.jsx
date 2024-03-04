@@ -1,4 +1,5 @@
 import './Objectives.css';
+import {Chart as ChartJs} from 'chart.js/auto'
 import {Line} from "react-chartjs-2";
 
 import revenueData from '../../data/revenueData.json'
