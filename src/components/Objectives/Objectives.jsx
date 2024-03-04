@@ -9,7 +9,7 @@ export default function Objectives() {
 
     return (
         <section className="objectivesParent">
-            <div style={{display: 'flex', justifyContent: 'center'}}>
+            <div style={{display: 'flex', justifyContent: 'center', width: '250px', height: '250px'}}>
                 <Line data={{
                     labels: revenueData.map((data) => data.label),
                     datasets: [
@@ -29,12 +29,12 @@ export default function Objectives() {
                                   display: true,
                                   text: ["Durée moyenne des", "sessions"],
                                   font: {
-                                      weight: 400,
-                                      size: 10,
-                                      family: 'Roboto'
+                                      weight: 500,
+                                      size: 15,
+                                      family: 'Roboto',
                                   },
                                   padding: 15,
-                                  color: 'white',
+                                  color: "rgba(255, 255, 255, 0.5)",
                                   align: 'start',
                                   fullSize: false
                               },
@@ -77,9 +77,9 @@ export default function Objectives() {
                                       display: false,
                                   },
                                   ticks: {
-                                      color: "#FFFFFF",
+                                      color: "rgba(255, 255, 255, 0.5)",
                                       font: {
-                                          size: 8,
+                                          size: 12,
                                       }
                                   },
                                   border: {

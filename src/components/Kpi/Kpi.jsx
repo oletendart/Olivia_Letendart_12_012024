@@ -1,32 +1,86 @@
 import {Cell, Pie, PieChart, Text} from "recharts";
+import {Doughnut} from "react-chartjs-2";
+import dataKpi from '../../data/dataForKpi.json'
 
 export default function Kpi() {
-    const data = [
-        { name: 'Group A', value: 50 },
-    ];
-    const COLORS = ['#0088FE'];
+    const doughnutPluginsScoreCenter = {
+        id: 'doughnut_plugins_score_center',
+        beforeDatasetsDraw(chart) {
+            const score = chart.data.datasets[0].data[0];
+            const { ctx, width, height } = chart;
+
+            const textFirstPart = score + '%';
+            const textSecondPart = 'de votre';
+            const textThirdPart = 'objectif';
+
+            const centerX = width / 2;
+            const centerY = height / 2;
+
+            ctx.font = 'bold 26px Roboto';
+            ctx.textBaseline = 'middle';
+            ctx.fillStyle = 'black';
+            ctx.fillText(textFirstPart, centerX - 20, centerY);
+
+            ctx.fillStyle = 'gray';
+            ctx.font = '16px Roboto';
+            ctx.fillText(textSecondPart, centerX - 25, centerY + 30);
+            ctx.fillText(textThirdPart, centerX - 25, centerY + 50);
+        },
+    };
 
     return (
-        <section className="kpiParent">
-            <Text>Score</Text>
-            <PieChart width={258} height={263}>
-                <Pie
-                    data={data}
-                    cx={125}
-                    cy={125}
-                    innerRadius={60}
-                    outerRadius={80}
-                    fill="#8884d8"
-                    dataKey="value"
-                >
-                    {
-                        data.map((entry, index) => (
-                            <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-                        ))
+        <section className="kpiParent" style={{ height: '250px', width: '250px' }}>
+            <Doughnut
+                data={{
+                    datasets: [
+                        {
+                            data: [
+                                100 - dataKpi[0].todayScore * 100,
+                                Math.floor(dataKpi[0].todayScore * 100),
+                            ],
+                            backgroundColor: ['#FBFBFB', 'red'],
+                        },
+                    ],
+                    labels: ['todayScore', ''],
+                }}
+            options={{
+                responsive: true,
+                maintainAspectRatio: false,
+                borderWidth: 0,
+                cutout: 90,
+                layout: {
+                    padding: {
+                        left: 10,
+                        right: 10,
+                        top: 5,
+                        bottom: 5,
+                    },
+                },
+                plugins: {
+                    title: {
+                        text: 'Score',
+                        display: true,
+                        align: 'start',
+                        color: 'black',
+                        font: {
+                            size: 15,
+                        }
+                    },
+                    legend: {
+                        display: false,
+                    },
+                    tooltip: {
+                        enabled: false,
                     }
-                </Pie>
-                <text x={125} y={125} textAnchor="middle" dominantBaseline="middle">Texte au centre du PieChart</text>
-            </PieChart>
+                },
+                elements: {
+                    arc: {
+                        borderRadius: 10
+                    }
+                }
+            }}
+                      plugins={[doughnutPluginsScoreCenter]}
+            />
         </section>
     );
 }

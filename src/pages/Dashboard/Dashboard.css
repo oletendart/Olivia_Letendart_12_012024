@@ -20,10 +20,9 @@
 
 .objectifs {
     display: flex;
-    flex-direction: row;
+    margin-top: 25px;
+    grid-gap: 20px;
     justify-content: space-between;
-    flex-wrap: nowrap;
-    align-items: center;
 }
 
 .proteins {

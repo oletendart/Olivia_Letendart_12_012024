@@ -1,7 +1,8 @@
 .objectivesParent {
-    background-color: #FF0000;
-    box-shadow: 0 2px 4px 0 #00000005;
-    border-radius: 4px;
-    width: 263px;
-    height: 258px;
+    height: 250px;
+    width: 250px;
+    border-radius: 5px;
+    display: flex;
+    align-items: end;
+    background-color: #FF0101;
 }
