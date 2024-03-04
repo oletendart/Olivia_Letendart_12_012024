@@ -1,83 +1,180 @@
-import {Bar, BarChart, CartesianGrid, Legend, Tooltip, XAxis, YAxis} from "recharts";
 import './Weight.css';
+import activitySessions from '../../data/activitySessions.json';
+import {Bar} from "react-chartjs-2";
 
 export default function Weight() {
-    const data = [{ name: 'Page A', uv: 4000, pv: 2400, amt: 2400 },
-        { name: 'Page B', uv: 3000, pv: 1398, amt: 2210 },
-        { name: 'Page C', uv: 2000, pv: 9800, amt: 2290 },
-        { name: 'Page D', uv: 2780, pv: 3908, amt: 2000 },
-        { name: 'Page E', uv: 1890, pv: 4800, amt: 2181 },
-        { name: 'Page F', uv: 2390, pv: 3800, amt: 2500 },
-        { name: 'Page G', uv: 3490, pv: 4300, amt: 2100 },];
 
-    const CustomTooltip = ({ active, payload }) => {
-        if (active && payload && payload.length) {
-            const item = payload[0].payload;
-
-            return (
-                <div style={{ background: '#E60000', padding: '10px', borderRadius: '5px', color: '#fff' }}>
-                            <p>{item.pv}</p>
-                            <p>{item.amt}</p>
-                </div>
-            );
-        }
-
-        return null;
-    };
-
-    const CustomBar = (props) => {
-        const { x, y, width, height, fill } = props;
-        const rayon = 4;
-
-        return (
-            <g>
-                <rect x={x} y={y} width={width} height={height} fill={fill} rx={rayon} ry={rayon} />
-            </g>
-        );
-    };
 
     return (
         <section className="weightParent">
-            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                <div style={{ marginBottom: '10px' }}>
-                    <p style={{ marginBottom: '0' }}>Activité quotidienne</p>
-                </div>
-                <div style={{marginRight: '20px'}}>
-                    <BarChart
-                        width={730}
-                        height={250}
-                        data={data}
-                    >
-                        <CartesianGrid strokeDasharray="6"
-                                       vertical={false}/>
-                        <XAxis dataKey="name"
-                               axisLine={false}
-                               tickLine={false}/>
-                        <YAxis orientation="right"
-                               axisLine={false}
-                               tickLine={false}/>
-                        <Tooltip content={CustomTooltip}/>
-                        <Legend
-                            iconType="circle"
-                            verticalAlign="top"
-                            align="right"
-                        />
-                        <Bar
-                            dataKey="pv"
-                            name="Poids (kg)"
-                            fill="#282D30"
-                            barSize={7}
-                            shape={CustomBar}
-                        />
-                        <Bar
-                            dataKey="uv"
-                            name="Calories brulées (kCal)"
-                            fill="#E60000"
-                            barSize={7}
-                            shape={CustomBar}/>
-                    </BarChart>
-                </div>
-            </div>
+            <Bar
+                data={{
+                    labels: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'].map(data => data),
+                    datasets: [
+                        {
+                            label: "Poids (kg)",
+                            data: activitySessions.map((data) => data.kilogram),
+                            backgroundColor: 'black',
+                            yAxisID: 'yPoids'
+                        },
+                        {
+                            label: 'Calories brûlées (kCal)',
+                            data: activitySessions.map((data) => data.calories),
+                            backgroundColor: 'red',
+                            yAxisID: 'yCalories'
+                        }
+                    ],
+                }}
+                options={{
+                    animation: false,
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    datasets: {
+                        bar: {
+                            borderRadius: 5,
+                            barPercentage: 0.5,
+                            categoryPercentage: 0.4,
+                        }
+                    },
+                    plugins: {
+                        tooltip: {
+                            backgroundColor: "red",
+                            bodyColor: 'white',
+                            mode: "index",
+                            usePointStyle: true,
+                            displayColors: false,
+                            bodySpacing: 25,
+                            padding: {
+                                y: 10,
+                                x: 10,
+                            },
+                            bodyAlign: "center",
+                            bodyFont: {
+                                size: 9,
+                            },
+                            caretSize: 0,
+                            caretPadding: 30,
+                            cornerRadius: 0,
+                            callbacks: {
+                                title: () => {
+                                    return '';
+                                },
+                                label: (context) => {
+                                    let label = '';
+
+                                    if (context.dataset.label === "Poids (kg)") {
+                                        label = context.formattedValue + "kg"
+                                    }
+
+                                    if (context.dataset.label === "Calories brûlées (kCal)") {
+                                        label = context.formattedValue + "Kcal"
+                                    }
+
+                                    return label;
+                                }
+                            }
+                        },
+                        title: {
+                            display: true,
+                            text: "Activité quotidienne",
+                            font: {
+                                weight: "bold",
+                                family: "Roboto",
+                                size: 15,
+                            },
+                            color: 'black',
+                            align: 'start',
+                            fullSize: false,
+                            lineHeight: 12,
+                            padding: {
+                                bottom: -30,
+                            }
+                        },
+                        legend: {
+                            position: 'top',
+                            align: 'end',
+                            labels: {
+                                usePointStyle: true,
+                                pointStyle: "circle",
+                                pointStyleWidth: 6,
+                                boxHeight: 5,
+                                padding: 20,
+                            }
+                        },
+                        backgroundColor: "red",
+                    },
+                    layout: {
+                        padding: {
+                            left: 20,
+                            top: 5,
+                            right: 5,
+                        }
+                    },
+                    scales: {
+                        x: {
+                            grid: {
+                                display: false,
+                            },
+                            ticks: {
+                                padding: 20,
+                            }
+                        },
+                        yPoids: {
+                            id: 'A',
+                            position: "right",
+                            min:
+                                Math.min(
+                                    ...activitySessions.map(
+                                        (item) => item.kilogram
+                                    )
+                                ) - 2,
+                            max:
+                                Math.max(
+                                    ...activitySessions.map(
+                                        (item) => item.kilogram
+                                    )
+                                ) + 2,
+                            border: {
+                                dash: [3, 2],
+                                display: false,
+                            },
+                            ticks: {
+                                stepSize: 1,
+                            }
+                        },
+                        yCalories: {
+                            id: 'B',
+                            position: 'left',
+                            beginAtZero: false,
+                            display: false,
+                            max:
+                                Math.max(
+                                    ...activitySessions.map(
+                                        (item) => item.calories
+                                    )
+                                ) + 20,
+                        },
+                },
+                    onHover: (event, chartElement) => {
+                        if (chartElement.length > 0) {
+                            const activePoint = chartElement[0];
+                            const ctx = event.chart.ctx;
+                            ctx.save();
+                            ctx.globalCompositeOperation = 'destination-over';
+                            ctx.fillStyle = 'lightgray';
+                            const distanceFromGridToX =
+                                activePoint.datasetIndex === 0 ? 43 : 65;
+                            ctx.fillRect(
+                                activePoint.element.x - distanceFromGridToX,
+                                42,
+                                93,
+                                216
+                            );
+                            ctx.restore();
+                        }
+                    },
+                }}
+            />
         </section>
     )
 }

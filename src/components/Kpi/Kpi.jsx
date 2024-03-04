@@ -1,4 +1,3 @@
-import {Cell, Pie, PieChart, Text} from "recharts";
 import {Doughnut} from "react-chartjs-2";
 import dataKpi from '../../data/dataForKpi.json'
 
@@ -44,6 +43,7 @@ export default function Kpi() {
                     labels: ['todayScore', ''],
                 }}
             options={{
+                animation: false,
                 responsive: true,
                 maintainAspectRatio: false,
                 borderWidth: 0,
