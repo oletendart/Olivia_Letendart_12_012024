@@ -1,13 +1,8 @@
 .radarParent {
     height: 250px;
     width: 250px;
-    background-color: #282d30;
+    background-color: #282D30;
     border-radius: 5px;
     display: flex;
     align-items: end;
-}
-
-.radarParent .recharts-polar-angle-axis-tick-value {
-    transform: translateX(-4px);
-    transform: translateY(4px);
 }

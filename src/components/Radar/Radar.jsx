@@ -1,14 +1,8 @@
-import {
-    Radar as RechartsRadar,
-    RadarChart,
-    PolarGrid,
-    PolarAngleAxis,
-    PolarRadiusAxis,
-    ResponsiveContainer
-} from "recharts";
 import './Radar.css';
+import {Chart as ChartJs} from 'chart.js/auto'
+import {Radar} from "react-chartjs-2";
 
-export default function Radar() {
+export default function RadarComponent() {
     const data = [
         { category: 'Intensité', value: 21 },
         { category: 'Vitesse', value: 22 },
@@ -20,14 +14,60 @@ export default function Radar() {
 
     return (
         <section className="radarParent">
-            <ResponsiveContainer width={258} height={263}>
-            <RadarChart cx={130} cy={130} outerRadius={80} data={data}>
-                <PolarGrid />
-                <PolarAngleAxis dataKey="category" />
-                <PolarRadiusAxis display="none" />
-                <RechartsRadar name="Example" dataKey="value" stroke="#E60000" fill="#E60000" fillOpacity={0.6} />
-            </RadarChart>
-            </ResponsiveContainer>
+            <Radar
+                data={{
+                    labels: data.map((item) => item.category),
+                    datasets: [
+                        {
+                            data: data.map((item) => item.value),
+                            backgroundColor: 'rgba(255, 1, 1, 0.7)',
+                            borderColor: 'rgba(255, 1, 1, 0.7)',
+                        }
+                    ]
+                }}
+                options={{
+                    maintainAspectRatio: false,
+                    layout: {
+                        padding: {
+                            top: 20,
+                            bottom: 20,
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            display: false,
+                        }
+                    },
+                    scales: {
+                        r: {
+                            grid: {
+                                color: 'white',
+                            },
+                            pointLabels: {
+                                color: 'white',
+                                font: {
+                                    size: 12
+                                }
+                            },
+                            ticks: {
+                                display: false,
+                                stepSize: 20
+                            },
+                            angleLines: {
+                                display: false,
+                            }
+                        }
+                    },
+                    elements: {
+                        point: {
+                            radius: 0,
+                        },
+                        line: {
+                            borderWidth: 0,
+                        }
+                    }
+                }}
+            />
         </section>
     );
 }

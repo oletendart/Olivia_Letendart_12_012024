@@ -3,12 +3,12 @@ import './Dashboard.css'
 import Weight from "../../components/Weight/Weight.jsx";
 import Supply from "../../components/Supply/Supply.jsx";
 import Objectives from "../../components/Objectives/Objectives.jsx";
-import Radar from "../../components/Radar/Radar.jsx";
 import Kpi from "../../components/Kpi/Kpi.jsx";
 import calories from "../../assets/calories-icon.png";
 import protein from "../../assets/protein-icon.png";
 import carbs from "../../assets/carbs-icon.png";
 import fat from "../../assets/fat-icon.png";
+import RadarComponent from "../../components/Radar/Radar.jsx";
 
 export default function Dashboard() {
     const data = [
@@ -44,7 +44,7 @@ export default function Dashboard() {
 
                     <div className="objectifs">
                         <Objectives/>
-                        <Radar />
+                        <RadarComponent />
                         <Kpi />
                     </div>
                 </div>
