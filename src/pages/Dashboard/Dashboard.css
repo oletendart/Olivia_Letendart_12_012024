@@ -32,3 +32,29 @@
     flex-direction: column;
     gap: 14px;
 }
+
+@media screen and (max-width: 1025px) {
+    .dashboardParent {
+        max-width: calc(800px - 118px);
+        width: 100%;
+        margin: 0 auto;
+        padding: 48px 0 0;
+    }
+
+    .parentObjectif {
+        max-height: 200px;
+    }
+
+    .objectifAndProteins {
+        width: 650px;
+        gap: 8px;
+    }
+
+    .objectifs {
+        grid-gap: 10px;
+    }
+
+    .proteins {
+        gap: 18px;
+    }
+}

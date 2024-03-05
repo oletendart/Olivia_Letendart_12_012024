@@ -45,7 +45,7 @@ export default function Kpi() {
             options={{
                 animation: false,
                 responsive: true,
-                maintainAspectRatio: false,
+                maintainAspectRatio: true,
                 borderWidth: 0,
                 cutout: 90,
                 layout: {

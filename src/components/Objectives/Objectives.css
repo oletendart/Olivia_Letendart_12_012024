@@ -6,3 +6,9 @@
     align-items: end;
     background-color: #FF0101;
 }
+
+@media screen and (max-width: 1025px) {
+    .objectivesParent {
+        width: 194px;
+    }
+}

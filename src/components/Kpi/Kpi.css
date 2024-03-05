@@ -1,8 +1,9 @@
 .kpiParent {
     height: 250px;
-    width: 250px;
+    width: 194px;
     background-color: #fbfbfb;
     border-radius: 5px;
     display: flex;
     align-items: end;
 }
+
