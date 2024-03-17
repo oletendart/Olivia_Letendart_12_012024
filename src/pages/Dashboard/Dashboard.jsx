@@ -25,7 +25,7 @@ export default function Dashboard() {
 
                     <div className="objectifs">
                         <Objectives sessionData={user.data.averageSession.sessions}/>
-                        <RadarComponent />
+                        <RadarComponent performanceKind={user.data.performance.kind} performanceData={user.data.performance.data}/>
                         <Kpi />
                     </div>
                 </div>

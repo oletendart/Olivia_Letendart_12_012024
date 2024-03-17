@@ -2,24 +2,19 @@ import './Radar.css';
 import {Chart as ChartJs} from 'chart.js/auto'
 import {Radar} from "react-chartjs-2";
 
-export default function RadarComponent() {
-    const data = [
-        { category: 'Intensité', value: 21 },
-        { category: 'Vitesse', value: 22 },
-        { category: 'Force', value: -32 },
-        { category: 'Endurance', value: -14 },
-        { category: 'Energie', value: -51 },
-        { category: 'Cardio', value: 16 }
-    ];
+export default function RadarComponent({performanceKind, performanceData}) {
+
+    const kindLabels = Object.values(performanceKind);
+
 
     return (
         <section className="radarParent">
             <Radar
                 data={{
-                    labels: data.map((item) => item.category),
+                    labels: kindLabels,
                     datasets: [
                         {
-                            data: data.map((item) => item.value),
+                            data: performanceData.map((item) => item.value),
                             backgroundColor: 'rgba(255, 1, 1, 0.7)',
                             borderColor: 'rgba(255, 1, 1, 0.7)',
                         }
