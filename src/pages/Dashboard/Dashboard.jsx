@@ -17,11 +17,11 @@ export default function Dashboard() {
 
     return (
         <section className="dashboardParent">
-            <Header/>
+            <Header firstName={user.data.userInfos.firstName} lastName={user.data.userInfos.lastName}/>
 
             <div className="objectifAndProteins">
                 <div className="parentObjectif">
-                    <Weight/>
+                    <Weight activity={user.data.activity.sessions}/>
 
                     <div className="objectifs">
                         <Objectives/>

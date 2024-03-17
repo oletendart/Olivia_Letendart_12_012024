@@ -1,25 +1,24 @@
 import './Weight.css';
-import activitySessions from '../../data/activitySessions.json';
 import {Bar} from "react-chartjs-2";
 
-export default function Weight() {
+export default function Weight({activity}) {
 
 
     return (
         <section className="weightParent">
             <Bar
                 data={{
-                    labels: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'].map(data => data),
+                    labels: ['1', '2', '3', '4', '5', '6', '7'].map(data => data),
                     datasets: [
                         {
                             label: "Poids (kg)",
-                            data: activitySessions.map((data) => data.kilogram),
+                            data: activity.map((data) => data.kilogram),
                             backgroundColor: 'black',
                             yAxisID: 'yPoids'
                         },
                         {
                             label: 'Calories brûlées (kCal)',
-                            data: activitySessions.map((data) => data.calories),
+                            data: activity.map((data) => data.calories),
                             backgroundColor: 'red',
                             yAxisID: 'yCalories'
                         }
@@ -124,13 +123,13 @@ export default function Weight() {
                             position: "right",
                             min:
                                 Math.min(
-                                    ...activitySessions.map(
+                                    ...activity.map(
                                         (item) => item.kilogram
                                     )
                                 ) - 2,
                             max:
                                 Math.max(
-                                    ...activitySessions.map(
+                                    ...activity.map(
                                         (item) => item.kilogram
                                     )
                                 ) + 2,
@@ -149,7 +148,7 @@ export default function Weight() {
                             display: false,
                             max:
                                 Math.max(
-                                    ...activitySessions.map(
+                                    ...activity.map(
                                         (item) => item.calories
                                     )
                                 ) + 20,
