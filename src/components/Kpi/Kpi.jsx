@@ -1,7 +1,6 @@
 import {Doughnut} from "react-chartjs-2";
-import dataKpi from '../../data/dataForKpi.json'
 
-export default function Kpi() {
+export default function Kpi({kpiData}) {
     const doughnutPluginsScoreCenter = {
         id: 'doughnut_plugins_score_center',
         beforeDatasetsDraw(chart) {
@@ -34,10 +33,10 @@ export default function Kpi() {
                     datasets: [
                         {
                             data: [
-                                100 - dataKpi[0].todayScore * 100,
-                                Math.floor(dataKpi[0].todayScore * 100),
+                                100 - kpiData * 100,
+                                Math.floor(kpiData * 100),
                             ],
-                            backgroundColor: ['#FBFBFB', 'red'],
+                            backgroundColor: ['red', '#FBFBFB'],
                         },
                     ],
                     labels: ['todayScore', ''],
