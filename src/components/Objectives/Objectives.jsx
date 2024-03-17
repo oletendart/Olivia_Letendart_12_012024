@@ -1,20 +1,17 @@
 import './Objectives.css';
-import {Chart as ChartJs} from 'chart.js/auto'
 import {Line} from "react-chartjs-2";
 
-import revenueData from '../../data/revenueData.json'
-
-export default function Objectives() {
+export default function Objectives({sessionData}) {
 
 
     return (
         <section className="objectivesParent">
             <div style={{display: 'flex', justifyContent: 'center', width: '250px', height: '250px'}}>
                 <Line data={{
-                    labels: revenueData.map((data) => data.label),
+                    labels: sessionData.map((data) => data.day),
                     datasets: [
                         {
-                            data: revenueData.map((data) => data.rev),
+                            data: sessionData.map((data) => data.sessionLength),
                         }
                     ],
                 }}
@@ -120,5 +117,5 @@ export default function Objectives() {
                 />
             </div>
         </section>
-)
+    )
 }

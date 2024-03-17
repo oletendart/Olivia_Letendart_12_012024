@@ -24,7 +24,7 @@ export default function Dashboard() {
                     <Weight activity={user.data.activity.sessions}/>
 
                     <div className="objectifs">
-                        <Objectives/>
+                        <Objectives sessionData={user.data.averageSession.sessions}/>
                         <RadarComponent />
                         <Kpi />
                     </div>

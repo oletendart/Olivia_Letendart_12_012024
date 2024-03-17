@@ -89,7 +89,7 @@
           }
         ]
       },
-      "averageSessions": {
+      "averageSession": {
         "sessions": [
           {
             "day": 1,
@@ -213,7 +213,7 @@
           }
         ]
       },
-      "averageSessions": {
+      "averageSession": {
         "sessions": [
           {
             "day": 1,
